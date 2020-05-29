@@ -33,7 +33,7 @@ body {
    border: none;
 }
 
-//
+// general
 
 .row-flex {
    display: flex;
@@ -91,7 +91,7 @@ body {
    background: #917C78;
 }
 
-//  модальное окно
+// modal window
 
 .popup {
    display: block;
@@ -104,6 +104,7 @@ body {
    height: 100%;
    z-index: 9;
    background-color: rgba(0, 0, 0, 0.5);
+   
 
    &-close {
       position: absolute;
@@ -126,9 +127,13 @@ body {
       left: 50%;
       top: 30%;
       transform: translateX(-50%);
-      transition: all 1s;
       padding: 5rem 7rem;
       background-color: @light;
       text-align: center;
+      transition: all 1s;
    }
+}
+
+.hide {
+   display: none;
 }
