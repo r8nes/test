@@ -1,4 +1,3 @@
-!
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -26,24 +25,24 @@
   <div class="container">
 
     <div class="row">
-       <div class="col-md-7">
+      <div class="col-md-7">
         <div class="form-header">
           <h1 class="text-center">Форма</h1>
         </div>
-        <form class="form-main" method="post" action="#">
+        <form class="form-main" method="" action="#">
           <div>
             <label for="name">Имя</label>
-            <input type="text" name="name" id = "name" required>
+            <input class="form-input" type="text" name="name" id="name">
           </div>
           <div>
             <label for="surname">Фамилия</label>
-            <input type="text" name="surname" id ="surname" required>
+            <input class="form-input" type="text" name="surname" id="surname">
           </div>
 
           <div>
             <label for="number">Выбери номер</label>
             <select name="number1">
-              <option>Выбери номер</option>
+              <option disabled>Выбери номер</option>
               <option value="Один">Один</option>
               <option value="Два">Два</option>
               <option value="Три">Три</option>
@@ -56,7 +55,7 @@
           <div>
             <label for="number">Выбери номер пожалуйста</label>
             <select name="number2">
-              <option>Выбери номер</option>
+              <option disabled>Выбери номер</option>
               <option value="Один">Один</option>
               <option value="Два">Два</option>
               <option value="Три">Три</option>
@@ -69,7 +68,7 @@
           <div>
             <label for="number">Выбери номер ещё раз</label>
             <select name="number3">
-              <option>Выбери номер</option>
+              <option disabled>Выбери номер</option>
               <option value="Один">Один</option>
               <option value="Два">Два</option>
               <option value="Три">Три</option>
@@ -82,7 +81,7 @@
           <div>
             <label for="number">Давай повторно</label>
             <select name="number4">
-              <option>Выбери номер</option>
+              <option disabled>Выбери номер</option>
               <option value="Один">Один</option>
               <option value="Два">Два</option>
               <option value="Три">Три</option>
@@ -95,7 +94,7 @@
           <div>
             <label for="number">Еще один</label>
             <select name="number5">
-              <option>Выбери номер</option>
+              <option disabled>Выбери номер</option>
               <option value="Один">Один</option>
               <option value="Два">Два</option>
               <option value="Три">Три</option>
@@ -105,23 +104,29 @@
             <div class="select-arrow"></div>
           </div>
 
-          <button class="btn btn-success form-btn" type="submit">Отправить</button>
+          <button class="btn btn-success form-btn"
+            type="submit">Отправить</button>
 
         </form>
-    
-       </div>
-       <div class="col-md-4 offset-md-1">
-        <div class="inner-header">
-          <h1 class="text-center">Вывод</h1>
+
+      </div>
+      <div class="col-md-4 offset-md-1">
+        <div class="inner">
+          <div class="inner-header">
+            <h1 class="text-center">Вывод</h1>
+          </div>
+          <div class="inner-main text-center">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
+            deserunt accusantium nihil, eveniet debitis, accusamus placeat
+            deleniti reiciendis rerum suscipit sunt earum totam quasi soluta
+            vitae quam odio, commodi numquam.
+          </div>
         </div>
-         <div class="inner-main text-center">
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione deserunt accusantium nihil, eveniet debitis, accusamus placeat deleniti reiciendis rerum suscipit sunt earum totam quasi soluta vitae quam odio, commodi numquam.
-         </div>
-       </div>
-     </div>
-    
+      </div>
+    </div>
+
     <div>
-      <a class="form-link alert alert-secondary" href="index.html">А тут формы
+      <a class="form-link alert alert-secondary" href="index.html">А тут главная
         <----- </a>
     </div>
   </div>

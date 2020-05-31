@@ -187,7 +187,7 @@ body {
          margin: 0;
          width: 100%;
          padding: 1rem 1.5rem;
-         background: #e6e6e6;
+         background: #e6e6e6; 
       }
 
 
@@ -199,13 +199,9 @@ body {
          border: 0;
          background: #e6e6e6;
          color: #7b7b7b;
-         // вроде убирает галки V 
+         // убирает галки V 
          -webkit-appearance: none;
          -moz-appearance: none;
-      }
-      // для галок IE
-      select::-ms-expand {
-         display: none;
       }
 
       .select-arrow {
@@ -220,7 +216,16 @@ body {
       }
         
    }
-
+}
+   @media (max-width: 860px){
+      .inner {
+         &-main {
+            position: static!important;
+            max-width:100%!important;
+            margin-right: 0!important;
+         }
+      }
+   }
    @media (max-width: 600px) {
       .form-wrap {
          margin: 2rem auto;
@@ -229,7 +234,6 @@ body {
       }
 
       form {
-         float: none;
          width: 100%;
       }
 
@@ -243,13 +247,18 @@ body {
       }
    }
 
-}
 
-.inner{
+
+.inner {
+   position: relative;
    &-main {
+      min-width: 260px;
+      max-width: 360px;
+      position: fixed;
+      margin-right: 2rem;
       margin-top: 3.2rem;
       padding:3rem 1rem;
-      border: 1px solid gray;
+      border: 1px solid rgba(128, 128, 128, 0.5);
       border-radius: 9px;
    }
 }
