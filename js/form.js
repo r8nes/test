@@ -1,66 +1,68 @@
 // Обработка формы
 
-const formButton = document.querySelector(".form-btn");
-const mainForm = document.querySelector(".form-main");
-const input = document.querySelector(".form-input");
-let out = document.querySelector(".inner-main");
-let getData = buttonLogic(formButton);
+const formButton = getSelector('.form-btn');
+const mainForm = getSelector('.form-main');
+let out = getSelector('.inner-main');
+let getData = callLogic(formButton);
 
-function buttonLogic(element) {
-  element.addEventListener("click", (e) => {
+
+function getSelector (selector) {
+   return document.querySelector(`${selector}`);
+}
+
+// Логика кнопки
+
+function callLogic(element) {
+  element.addEventListener('click', (e) => {
     e.preventDefault();
     dataRequest();
   });
 }
 
-// обработчик формы
+// Обработчик формы
 
-function parseForm(form, handler) {
+function parseForm(form, formHandler) {
+
   // проверяем форма ли это
-  if (!form || form.nodeName !== "FORM") {
+  if (!form || form.nodeName !== 'FORM') {
     return false;
   }
-  let formData = [];
+
+  let record = [];
 
   for (let i = 0; form.elements.length > i; i++) {
     // пропускаем пустые элементы
     if (!form.elements[i].name) {
       continue;
     }
+
     // проверяем что это за форма
     switch (form.elements[i].nodeName) {
-      case "INPUT":
+      case 'INPUT':
         switch (form.elements[i].type) {
-          case "text":
+          case 'text':
             if (!form.elements[i].value) {
               return false;
             } else {
-              handler(formData, form, i);
+              formHandler(record, form, i);
               break;
             }
         }
         break;
-      case "SELECT":
+      case 'SELECT':
         switch (form.elements[i].type) {
-          case "select-one":
-            handler(formData, form, i);
-            break;
-        }
-        break;
-      case "BUTTON":
-        switch (form.elements[i].type) {
-          case "submit":
-            handler(formData, form, i);
+          case 'select-one':
+            formHandler(record, form, i);
             break;
         }
         break;
     }
   }
-  let convert = JSON.stringify(formData);
+  let convert = JSON.stringify(record);
   return convert;
 }
 
-// преобразователь элементов формы в объект
+// Преобразователь элементов формы в объект
 
 function putObjectInArr(arr, el, itr) {
   return arr.push({
@@ -69,22 +71,23 @@ function putObjectInArr(arr, el, itr) {
   });
 }
 
-// эмулирую запрос
+// А-ля Запрос
 // ****************
-// это мое самое слабое место, если честно
+// Это мое самое слабое место, если честно.
 
 function dataRequest() {
-  out.innerHTML = "...getting data...";
+  out.innerHTML = '...getting data...';
 
   return new Promise((resolve) => {
     setTimeout(() => {
-      let draw = parseForm(mainForm, putObjectInArr);
+      let drawData = parseForm(mainForm, putObjectInArr);
 
-      if (!draw) {
-        out.innerHTML = `...SOMTHING GONE WRONG!<br/> Complete form, please.`;
+      if (!drawData) {
+         out.innerHTML = new Error('...SOMTHING GONE WRONG!<br/> Complete form, please.')
       } else {
-        resolve(draw);
+        resolve(drawData);
       }
+
     }, 3000);
   }).then((data) => {
     out.innerHTML = data;
@@ -92,4 +95,4 @@ function dataRequest() {
 }
 
 // ***********
-// я знаю, что тут fetch или xhr, но в это надо углубляться не на тех.задании
+// Я знаю, что тут fetch или xhr, но я пока не имею представление, как обрабатывать и отсылать полученные данные из формы. В это надо углубляться не на тех.задании.
