@@ -71,9 +71,7 @@ function putObjectInArr(arr, el, itr) {
   });
 }
 
-// А-ля Запрос
-// ****************
-// Это мое самое слабое место, если честно.
+// Выводим запрос
 
 function dataRequest() {
   out.innerHTML = '...getting data...';
